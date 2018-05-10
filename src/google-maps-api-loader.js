@@ -10,8 +10,10 @@ function loadAutoCompleteAPI(params) {
 
   script.type = 'text/javascript';
 
+  var baseUrl = (typeof params.loadCn == 'boolean' && params.loadCn) ? 'http://maps.google.cn/' : 'https://maps.googleapis.com/';
+
   script.src = urlBuilder({
-    base: 'https://maps.googleapis.com/maps/api/js',
+    base: baseUrl + 'maps/api/js',
     libraries: params.libraries || [],
     callback: 'googleMapsAutoCompleteAPILoad',
     apiKey: params.apiKey,
